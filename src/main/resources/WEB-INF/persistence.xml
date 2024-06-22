@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 
+	version="3.0"
+	xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+	<persistence-unit name="LPII_CL2_RIOSVILLEGASDIEGO">
+		<!-- Descripción de la unidad de persistencia -->
+		<description>Esta unidad de persistencia está conectada a la bd bdriosvillegascl2</description>
+	
+		<!-- Entidades -->
+		<class>model.TblUsuarioCl2</class>
+		<class>model.TblProductoCl2</class>
+
+		<!-- Propiedades o configuración de la conexión a BASE DE DATOS -->
+		<properties>
+			<!-- MySQL -->
+			<property name="jakarta.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdriosvillegascl2" 
+				/>
+			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.password" value="admin" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="LPII_CL2_RIOSVILLEGASDIEGO" transaction-type="JTA">
+     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    </persistence-unit>
+</persistence>
