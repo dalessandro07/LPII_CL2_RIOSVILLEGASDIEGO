@@ -10,8 +10,7 @@
   <packaging>war</packaging>
 
   <name>LPII_CL2_RIOSVILLEGASDIEGO Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/dalessandro07/LPII_CL2_RIOSVILLEGASDIEGO</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,19 +29,21 @@
     </dependency>
     
     <!-- Java Servlet API using JAKARTA -->
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-    <dependency>
+    <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+	<dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-web-api</artifactId>
         <version>10.0.0</version>
     </dependency>
     
     <!-- EclipseLink Persistence -->
-    <dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+	<dependency>
 	    <groupId>org.eclipse.persistence</groupId>
 	    <artifactId>eclipselink</artifactId>
 	    <version>4.0.3</version>
 	</dependency>
+
 	
 	<!-- MySQL Connector Java -->
 	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
