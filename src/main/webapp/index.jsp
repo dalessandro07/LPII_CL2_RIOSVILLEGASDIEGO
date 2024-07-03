@@ -3,13 +3,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>CL2 - LPII Diego Alessandro Rios Villegas</title>
+  <title>CL3 - LPII Diego Alessandro Rios Villegas</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <main class="flex items-center gap-10 p-10 justify-center min-h-screen">
     <aside class="flex flex-col gap-1 w-1/2">
-      <h1 class="text-8xl font-bold text-balance">Examen CL2 - LPII</h1>
+      <h1 class="text-8xl font-bold text-balance">Examen CL3 - LPII</h1>
       <p class="text-2xl text-gray-500">Diego Alessandro Rios Villegas</p>
     </aside>
 

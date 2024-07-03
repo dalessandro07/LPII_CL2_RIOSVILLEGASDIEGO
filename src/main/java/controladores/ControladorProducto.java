@@ -54,6 +54,35 @@ public class ControladorProducto extends HttpServlet {
       daoProducto.RegistrarProducto(nuevoProducto);
 
       request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+    } else if ("actualizar".equalsIgnoreCase(action)) {
+      int id = Integer.parseInt(request.getParameter("id"));
+
+      String nombre = request.getParameter("nombre");
+      double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
+      double precioCompra = Double.parseDouble(request.getParameter("precioCompra"));
+      String estado = request.getParameter("estado");
+      String descripcion = request.getParameter("descripcion");
+
+      TblProductocl2 producto = new TblProductocl2();
+      producto.setIdproductocl2(id);
+      producto.setNombrecl2(nombre);
+      producto.setPrecioventacl2(precioVenta);
+      producto.setPreciocompcl2(precioCompra);
+      producto.setEstadocl2(estado);
+      producto.setDescripcl2(descripcion);
+
+      daoProducto.ActualizarProducto(producto);
+
+      request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+    } else if ("eliminar".equalsIgnoreCase(action)) {
+      int id = Integer.parseInt(request.getParameter("id"));
+
+      TblProductocl2 producto = new TblProductocl2();
+      producto.setIdproductocl2(id);
+
+      daoProducto.EliminarProducto(producto);
+
+      request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     } else {
       doGet(request, response);
     }

@@ -66,7 +66,7 @@ public class ClassProductocl2Imp implements IProductocl2 {
       // Confirmamos
       em.getTransaction().commit();
 
-      // Retornamos el listado de clientes de la BD
+      // Retornamos el listado de productos de la BD
       return listado;
     } catch (Exception e) {
       System.out.println(e.getMessage());
@@ -75,6 +75,66 @@ public class ClassProductocl2Imp implements IProductocl2 {
       // Cerramos
       em.close();
     }
+  }
+
+  @Override
+  public void ActualizarProducto(TblProductocl2 producto) {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
+    try {
+      // Iniciamos la transacción
+      em.getTransaction().begin();
+
+      // Actualizamos el producto
+      em.merge(producto);
+
+      // Emitimos mensaje por consola
+      System.out.println("Producto actualizado en la BD.");
+
+      // Confirmamos
+      em.getTransaction().commit();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+      if (em.getTransaction().isActive()) {
+        em.getTransaction().rollback();
+      }
+    } finally {
+      // Cerramos
+      em.close();
+    }
+  }
+
+  @Override
+  public void EliminarProducto(TblProductocl2 producto) {
+    try {
+      // Establecer la conexión con la unidad de persistencia
+      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+      // Gestionar las entidades
+      EntityManager em = fabr.createEntityManager();
+
+      // Iniciamos la transacción
+      em.getTransaction().begin();
+
+      // Buscamos el producto por su ID
+      TblProductocl2 p = em.find(TblProductocl2.class, producto.getIdproductocl2());
+
+      // Eliminamos el producto
+      em.remove(p);
+
+      // Emitimos mensaje por consola
+      System.out.println("Producto eliminado de la BD.");
+
+      // Confirmamos
+      em.getTransaction().commit();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+
   }
 
 }
